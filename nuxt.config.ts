@@ -2,6 +2,14 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  modules: ["@nuxt/ui", "@nuxt/icon"],
+  modules: ["@nuxt/ui", "@nuxt/icon", "@nuxtjs/supabase"],
   css: ["~/assets/css/main.css"],
+  runtimeConfig: {
+    public: {
+      apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL,
+    },
+  },
+  supabase: {
+    redirect: false,
+  },
 });

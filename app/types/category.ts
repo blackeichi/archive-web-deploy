@@ -1,22 +1,13 @@
-export interface CategoryItem {
+export interface CategoryTreeNode {
   id: number;
+  parent_id: number | null;
+  type: "root" | "child";
   name: string;
   slug: string;
-  description?: string;
-  visible: boolean;
-  order: number;
-}
-
-export interface CategoryGroup extends CategoryItem {
-  children: CategoryItem[];
-}
-
-export interface CategoryForm {
-  id?: number;
-  parentId: number | null;
-  name: string;
-  slug: string;
-  description: string;
-  visible: boolean;
-  order: number;
+  description: string | null;
+  sort_order: number;
+  is_guest_room: boolean;
+  created_at: string;
+  updated_at: string;
+  children?: CategoryTreeNode[];
 }
