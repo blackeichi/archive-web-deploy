@@ -117,10 +117,10 @@
 import { computed, ref } from "vue";
 import { useAuth } from "~/composables/useAuth";
 import { useMyProfile } from "~/composables/useMyProfile";
-import { useCategorieTrees } from "~/composables/useCategories";
 import SidebarProfile from "~/components/sidebar/SidebarProfile.vue";
 import SidebarCategories from "~/components/sidebar/SidebarCategories.vue";
 import SidebarFooter from "~/components/sidebar/SidebarFooter.vue";
+import { useCategorieTrees } from "~/composables/category/useCategories";
 
 const user = useSupabaseUser();
 const { signOut } = useAuth();

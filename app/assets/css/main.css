@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+input,
+progress {
+  accent-color: #1c1917;
+}
+.scroll-area::-webkit-scrollbar {
+  width: 10px;
+}
+.scroll-area::-webkit-scrollbar-thumb {
+  background-color: #9b9b9b;
+  border-radius: 4px;
+}
+.scroll-area::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(63, 58, 56);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}

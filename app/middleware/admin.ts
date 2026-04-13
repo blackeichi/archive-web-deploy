@@ -7,13 +7,13 @@ export default defineNuxtRouteMiddleware(async () => {
     return navigateTo("/login");
   }
 
-  const { profile, fetchMyProfile } = useMyProfile();
+  const { profile, fetchMyProfile, isAdmin } = useMyProfile();
 
   if (!profile.value) {
     await fetchMyProfile();
   }
 
-  if (profile.value?.role !== "admin") {
+  if (!isAdmin.value) {
     return navigateTo("/");
   }
 });

@@ -2,53 +2,53 @@
   <div class="min-h-screen bg-white px-6 py-16">
     <div class="mx-auto max-w-sm">
       <div class="mb-10">
-        <h1 class="text-2xl font-semibold text-slate-900">로그인</h1>
-        <p class="mt-2 text-sm text-slate-500">
+        <h1 class="text-2xl font-semibold text-stone-900">로그인</h1>
+        <p class="mt-2 text-sm text-stone-500">
           정우의 기록/메모 아카이브에 접속하려면 로그인해주세요.
         </p>
       </div>
 
       <form class="space-y-5" @submit.prevent="onSubmit">
         <div>
-          <label class="mb-1 block text-xs text-slate-500">이메일</label>
+          <label class="mb-1 block text-xs text-stone-500">이메일</label>
           <input
             v-model="email"
             type="email"
             placeholder="you@example.com"
             autocomplete="email"
             :disabled="isGuestLogin"
-            class="w-full border-b border-slate-300 bg-transparent px-0 py-2 text-sm text-slate-900 outline-none placeholder:text-slate-400 focus:border-slate-900 disabled:cursor-not-allowed disabled:border-slate-200 disabled:text-slate-400 disabled:bg-slate-100"
+            class="w-full border-b border-stone-300 bg-transparent px-0 py-2 text-sm text-stone-900 outline-none placeholder:text-stone-400 focus:border-stone-900 disabled:cursor-not-allowed disabled:border-stone-200 disabled:text-stone-400 disabled:bg-stone-100"
           />
         </div>
 
         <div>
-          <label class="mb-1 block text-xs text-slate-500">비밀번호</label>
+          <label class="mb-1 block text-xs text-stone-500">비밀번호</label>
           <input
             v-model="password"
             type="password"
             placeholder="비밀번호"
             autocomplete="current-password"
             :disabled="isGuestLogin"
-            class="w-full border-b border-slate-300 bg-transparent px-0 py-2 text-sm text-slate-900 outline-none placeholder:text-slate-400 focus:border-slate-900 disabled:cursor-not-allowed disabled:border-slate-200 disabled:text-slate-400 disabled:bg-slate-100"
+            class="w-full border-b border-stone-300 bg-transparent px-0 py-2 text-sm text-stone-900 outline-none placeholder:text-stone-400 focus:border-stone-900 disabled:cursor-not-allowed disabled:border-stone-200 disabled:text-stone-400 disabled:bg-stone-100"
           />
         </div>
 
         <div class="flex items-center justify-between pt-2">
-          <label class="flex items-center gap-2 text-xs text-slate-500">
+          <label class="flex items-center gap-2 text-xs text-stone-500">
             <input
               v-model="rememberEmail"
               type="checkbox"
               :disabled="isGuestLogin"
-              class="h-3.5 w-3.5 border-slate-300 text-slate-900 focus:ring-0 disabled:cursor-not-allowed"
+              class="h-3.5 w-3.5 border-stone-300 text-stone-900 focus:ring-0 disabled:cursor-not-allowed"
             />
             아이디 저장
           </label>
 
-          <label class="flex items-center gap-2 text-xs text-slate-500">
+          <label class="flex items-center gap-2 text-xs text-stone-500">
             <input
               v-model="isGuestLogin"
               type="checkbox"
-              class="h-3.5 w-3.5 border-slate-300 text-slate-900 focus:ring-0"
+              class="h-3.5 w-3.5 border-stone-300 text-stone-900 focus:ring-0"
             />
             게스트로 로그인하기
           </label>
@@ -61,7 +61,7 @@
         <button
           type="submit"
           :disabled="isSubmitting || !canSubmit"
-          class="mt-4 w-full border border-slate-300 py-2 text-sm text-slate-800 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+          class="mt-4 w-full border border-stone-300 py-2 text-sm text-stone-800 transition hover:bg-stone-50 disabled:cursor-not-allowed disabled:opacity-50"
         >
           {{ isSubmitting ? "로그인 중..." : "로그인" }}
         </button>

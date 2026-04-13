@@ -1,4 +1,4 @@
-import type { CategoryItem, CategoryTreeItem } from "~/types/category";
+import type { DbCategory, CategoryTreeItem } from "~/types/category";
 
 export function useCategorieTrees() {
   const { request } = useApi();
@@ -22,6 +22,6 @@ export function useCategories() {
   const { request } = useApi();
 
   return useAsyncData("categories", () => {
-    return request<CategoryItem[]>("/categories");
+    return request<DbCategory[]>("/categories");
   });
 }
