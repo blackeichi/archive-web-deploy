@@ -1,28 +1,25 @@
+import type { Profile } from "~/types/profile";
 import { useApi } from "./useApi";
+import { computed } from "vue";
 
-export const useMyProfile = () => {
+export function useMyProfile() {
   const { request } = useApi();
 
-  const profile = useState<any | null>("my-profile", () => null);
-  const loading = useState<boolean>("my-profile-loading", () => false);
+  const { data, pending, error, refresh } = useAsyncData<Profile | null>(
+    "myProfile",
+    () => request<Profile | null>("/profile"),
+    {
+      default: () => null,
+    },
+  );
 
-  const fetchMyProfile = async () => {
-    loading.value = true;
-    try {
-      const response = await request<any>("/me/profile");
-      profile.value = response.data ?? response;
-      return profile.value;
-    } finally {
-      loading.value = false;
-    }
-  };
-
-  const isAdmin = computed(() => profile.value?.role === "admin");
+  const isAdmin = computed(() => data.value?.role === "admin");
 
   return {
-    profile,
-    loading,
-    fetchMyProfile,
+    profile: data,
+    loading: pending,
+    error,
+    fetchMyProfile: refresh,
     isAdmin,
   };
-};
+}

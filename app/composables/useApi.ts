@@ -1,15 +1,13 @@
-import { useAuth } from "./useAuth";
-
 export const useApi = () => {
   const config = useRuntimeConfig();
-  const { getAccessToken } = useAuth();
+  const session = useSupabaseSession();
 
   const request = async <T>(url: string, options: any = {}): Promise<T> => {
     const headers: Record<string, string> = {
       ...(options.headers || {}),
     };
 
-    const token = await getAccessToken();
+    const token = session.value?.access_token;
 
     if (token) {
       headers.Authorization = `Bearer ${token}`;
@@ -20,8 +18,5 @@ export const useApi = () => {
       headers,
     });
   };
-
-  return {
-    request,
-  };
+  return { request };
 };
